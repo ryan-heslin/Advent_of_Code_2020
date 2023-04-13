@@ -253,13 +253,6 @@ def dfs(mapping, reference, edges, position, used, max_extent):
 def trim(tile):
     return tuple(row[1:-1] for row in tile[1:-1])
 
-    # if at start:
-    # Try every tile in as top left
-    # For each unused tile:
-    # if right edge matches most recent left and if not top, top edge matches tile above
-    #   Add tile in position
-    # for coord, mapping
-
 
 with open("inputs/day20.txt") as f:
     raw_input = f.read().split("\n\n")
