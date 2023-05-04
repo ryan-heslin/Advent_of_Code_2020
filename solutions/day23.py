@@ -82,7 +82,7 @@ cups = link(raw_input)
 last_digit = raw_input % 10
 first_digit = raw_input // (10 ** (len(cups) - 1))
 result = crab_cups(cups.copy(), 100, first_digit)
-part1 = "".join(str(x) for x in unwind(cups))
+part1 = "".join(str(x) for x in unwind(result))
 print(part1)
 
 # Actual digit position needed to align range

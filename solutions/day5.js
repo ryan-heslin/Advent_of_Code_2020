@@ -28,14 +28,10 @@ function find_id(ids) {
 const raw_input = fs.readFileSync('inputs/day5.txt', 'utf-8').toString().replace(/\n+$/, "").split("\n");
 
 const numbers = raw_input.map(parse_numbers);
-console.log(numbers)
 const seat_ids = numbers.map(seat_id);
 const part1 = Math.max(...seat_ids);
 console.log(part1);
 
 seat_ids.sort();
-console.log(seat_ids);
 const part2 = find_id(seat_ids);
 console.log(part2);
-
-modulus = Math.prod(...buses)

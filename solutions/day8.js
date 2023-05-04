@@ -43,7 +43,6 @@ function solve_part2(instructions) {
 
 const raw_input = fs.readFileSync("inputs/day8.txt").toString().replace(/\n+$/, "").split("\n");
 const instructions = raw_input.map(parse);
-console.log(instructions)
 const part1 = solve_part1(instructions);
 console.log(part1[1]);
 
