@@ -29,7 +29,12 @@ function solve(lines) {
 
     let part1 = part2 = 0;
     const eye_color = contains(new Set(["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]));
-    const validators = { "byr": between(1920, 2002), "iyr": between(2010, 2020), "eyr": between(2020, 2030), "hgt": height, "hcl": matches(/#[0-9a-f]{6}/), "ecl": eye_color, "pid": matches(/^\d{9}$/) };
+    const validators = {
+        "byr": between(1920, 2002),
+        "iyr": between(2010, 2020), "eyr": between(2020, 2030),
+        "hgt": height, "hcl": matches(/#[0-9a-f]{6}/), "ecl": eye_color,
+        "pid": matches(/^\d{9}$/)
+    };
     let fields = Object.keys(validators);
 
     for (line of lines) {
@@ -55,7 +60,6 @@ function solve(lines) {
 
 const fs = require("fs");
 const raw_input = fs.readFileSync('inputs/day4.txt', 'utf-8').toString().replace(/\n+$/, "").split("\n\n");
-//raw_input.pop();
 
 answer = solve(raw_input);
 console.log(answer[0])

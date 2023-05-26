@@ -22,8 +22,6 @@ function solve(groups) {
     return [part1, part2]
 }
 
-
-
 const raw_input = fs.readFileSync('inputs/day6.txt', 'utf-8').toString().replace(/\n+$/, "").split("\n\n");
 
 const result = solve(raw_input);

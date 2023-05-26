@@ -4,7 +4,11 @@ allergens <- gsub(".*\\(contains ([^)]+)\\)", "\\1", raw_input) |>
 ingredients <- gsub("\\s\\(.*", "", raw_input) |>
     strsplit("\\s")
 
-combined <- mapply(expand.grid, ingredient = ingredients, allergen = allergens, group = seq_along(allergens), stringsAsFactors = FALSE, SIMPLIFY = FALSE) |>
+combined <- mapply(expand.grid,
+    ingredient = ingredients,
+    allergen = allergens, group = seq_along(allergens),
+    stringsAsFactors = FALSE, SIMPLIFY = FALSE
+) |>
     lapply(\(x) {
         x$contained <- length(unique(x$allergen))
         x

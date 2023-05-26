@@ -31,8 +31,6 @@ def simulate(start, iterations, neighbors):
         # This shouldn't double-count anywhere
         for cube in on:
             this_neighbors = neighbors(cube)
-            assert len(this_neighbors) in (80, 26)
-            # current_neighbors[point] = this_neighbors
             for neighbor in this_neighbors:
                 if neighbor in on:
                     # If on, note that on cube has this point as neighbor
@@ -41,13 +39,8 @@ def simulate(start, iterations, neighbors):
                     # If cube is off, note that it is neighbor of on cube
                     off_on_neighbors[neighbor] += 1
 
-        # on.difference_update(
-        #     k for k, v in on_on_neighbors.items() if not (v == 2 or v == 3)
-        # )
         on = set(filter(lambda x: on_on_neighbors[x] in (2, 3), on))
         on.update(k for k, v in off_on_neighbors.items() if v == 3)
-        # current_neighbors = { cube: neighbors(cube) for cube in on}
-        # new_on = Counter(neighbors(x) for x in on)
     return len(on)
 
 

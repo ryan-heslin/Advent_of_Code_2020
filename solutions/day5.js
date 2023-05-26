@@ -1,4 +1,5 @@
 const fs = require("fs");
+
 function replace(char, zero) {
     return char === zero ? "0" : "1";
 }

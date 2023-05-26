@@ -16,7 +16,7 @@ def display(map, xmax, ymax):
     )
 
 
-def identity(x, *args):
+def identity(x, *_):
     return x
 
 
@@ -37,7 +37,7 @@ def vflip(x, dim=None):
 
 
 @singledispatch
-def left90(x, *args):
+def left90(x, *_):
     pass
 
 
@@ -50,7 +50,7 @@ def _(lines: tuple, dim=10):
 
 
 @left90.register
-def _(coords: set, size=None):
+def _(coords: set, *_):
     # Rightmost column becomes topmost row, mapping down to left, and so on
     ordered = list(sorted(coords, key=real, reverse=True))
     xmax = ordered[0].real
@@ -81,7 +81,7 @@ def _(coords: set, dim=None):
     return {complex(coord.real, abs(coord.imag - dim)) for coord in coords}
 
 
-def two_flip(coords: set[complex], *args):
+def two_flip(coords: set[complex], *_):
     return hflip(vflip(coords))
 
 
@@ -292,7 +292,6 @@ print(part1)
 
 # Replace hashes in mapping with tiles
 # Trim borders
-
 grid = {k: trim(reference[v][2]) for k, v in grid.items()}
 size = len(next(iter(grid.values()))[0])
 map = {}

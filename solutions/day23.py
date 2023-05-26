@@ -1,9 +1,9 @@
 def parse(num):
-    return [int(x) for x in str(num)]
+    return list(map(int, str(num)))
 
 
 def link(number):
-    nums = [int(x) for x in str(number)]
+    nums = parse(str(number))
     result = {}
 
     for i in range(len(nums) - 1):
@@ -42,7 +42,7 @@ def crab_cups(cups, iterations, start):
         this_removal = current_right
 
         # Add next two cups to remove to set
-        for __ in iter:
+        for _ in iter:
             next_removal = cups[this_removal]
             removals.add(next_removal)
             this_removal = next_removal
@@ -62,19 +62,6 @@ def crab_cups(cups, iterations, start):
         current_cup = cups[current_cup]
 
     return cups
-
-
-# For each iteration:
-# Get first of three target cups
-# Read three target cups into set
-# Record cup right of rightmost target cup
-# While true
-# Subtract 1 from current cup or wrap around if min cup
-# If cup not current cup and not in removed cups, break
-
-# Set current cup's right cup first of target cups
-# Set rightmost of target cup's right cup cup right of current cup
-# Set current cup next cup
 
 
 raw_input = 476138259

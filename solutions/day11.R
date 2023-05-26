@@ -13,7 +13,6 @@ find_nearest <- function(start, board, dx, dy, xmin, xmax, ymin, ymax, max_trave
         y <- y + dy
         visited <- visited + 1
     }
-    NULL
 }
 
 neighbor_getter <- function(board, max_traverse) {

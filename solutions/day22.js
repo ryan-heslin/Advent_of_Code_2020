@@ -2,7 +2,6 @@ const fs = require("fs");
 
 function hash_game(players) {
     return players[0].toString() + "-" + players[1].toString();
-
 }
 
 function play(players, recurse) {
@@ -45,7 +44,8 @@ function score(cards) {
 }
 
 const raw_input = fs.readFileSync('inputs/day22.txt', 'utf-8').toString()
-    .replace(/\n+$/, "").replace(/Player.*\n/, "").replace(/Player.*\n/, "").split("\n\n");
+    .replace(/\n+$/, "").replace(/Player.*\n/, "").replace(/Player.*\n/, "").
+    split("\n\n");
 const player1 = raw_input[0].split("\n").map(Number);
 const player2 = raw_input[1].split("\n").map(Number);
 

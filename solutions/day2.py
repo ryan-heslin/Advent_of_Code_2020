@@ -1,7 +1,3 @@
-with open("inputs/day2.txt") as f:
-    raw_input = f.read().splitlines()
-
-
 def parse(line):
     parts = line.split(" ")
     rnge = parts[0].split("-")
@@ -26,6 +22,9 @@ def solve(policies):
         )
     return part1, part2
 
+
+with open("inputs/day2.txt") as f:
+    raw_input = f.read().splitlines()
 
 processed = map(parse, raw_input)
 part1, part2 = solve(processed)

@@ -1,6 +1,3 @@
-from math import pi
-
-
 orientations = {"N": 0 + 1j, "S": 0 - 1j, "E": 1 + 0j, "W": -1 + 0j}
 rotations = {
     90: lambda x: complex(-x.imag, x.real),
@@ -44,7 +41,7 @@ def solve(instructions, orientations, rotations):
 with open("inputs/day12.txt") as f:
     raw_input = f.read().splitlines()
 
-processed = [(line[0], int(line[1:])) for line in raw_input]
+processed = ((line[0], int(line[1:])) for line in raw_input)
 positions = solve(processed, orientations, rotations)
 
 part1 = int(l1(positions[0]))

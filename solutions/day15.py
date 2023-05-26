@@ -1,4 +1,4 @@
-numbers = [17, 1, 3, 16, 19, 0]
+numbers = (17, 1, 3, 16, 19, 0)
 seen = dict(zip(numbers, range(1, 8)))
 
 

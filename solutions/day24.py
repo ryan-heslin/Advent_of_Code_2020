@@ -26,7 +26,6 @@ def parse(lines):
             black.remove(position)
         else:
             black.add(position)
-        # black[position] = not black[position]
     return black
 
 
@@ -40,10 +39,6 @@ def get_s(coord):
 def neighbors(coord):
     q = coord.real
     r = coord.imag
-    # Coords sum to 0
-    # q = -s -r
-    # r = -q - s
-    # starting from NE, going clockwise
     return frozenset(
         (
             complex(q, r - 1),
@@ -64,7 +59,6 @@ def simulate(start, iterations=100):
         black_black_neighbors = defaultdict(lambda: 0)
         live_number = (1, 2)
 
-        # This shouldn't double-count anywhere
         for hex in black:
             this_neighbors = neighbors(hex)
             for neighbor in this_neighbors:
@@ -86,5 +80,6 @@ black = set(parse(raw_input))
 part1 = len(black)
 print(part1)
 
-part2 = simulate(black, 100)
+iterations = 100
+part2 = simulate(black, iterations)
 print(part2)

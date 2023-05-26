@@ -37,7 +37,6 @@ function solve_part1(lines) {
     for (line of lines) {
         //AND with mask complement (filling X with 1)
         // OR with pattern
-
         // New mask
         if (line.length == 1) {
             mask = line[0];
@@ -84,11 +83,8 @@ function solve_part2(lines) {
                     } else if (isNaN(bit)) {
                         additions.push(power)
                     }
-                    //  if (target == 0) break
                     old_target = target;
                 }
-                //since string is mapped in reverse of numeric order
-                //additions.reverse();
                 let summands = [[0]];
                 if (additions.length > 0) {
                     summands = summands.concat(combo_sum(additions));
@@ -102,8 +98,6 @@ function solve_part2(lines) {
         }
         return Object.values(memory).reduce((x, y) => x + y);
     }
-
-
 }
 
 const raw_input = fs.readFileSync('inputs/day14.txt', 'utf-8').toString().replace(/\n+$/, "").split("\n");

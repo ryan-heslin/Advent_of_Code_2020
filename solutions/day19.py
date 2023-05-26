@@ -19,8 +19,6 @@ def parse(lines):
 
 
 def resolve(string, rules):
-
-    # Problem: decide how many times to invoke recursive option of recursive rules
     def inner(rule, index):
         specs = rules[rule]
         for alternative in specs:
@@ -73,8 +71,6 @@ def verify(string, left_regex, right_regex, full_regex):
         left = re.match("^" + left_regex + "+", string)
         left_matches = re.findall(left_regex, string[: left.end()])
         right_matches = re.findall(right_regex, string[left.end() :])
-        # assert re.match(right_regex + "+$", string[left.end() :])
-        # assert "".join(left_matches) + "".join(right_matches) == string
         return (
             "".join(left_matches) + "".join(right_matches) == string
             and len(right_matches) > 0
@@ -86,7 +82,7 @@ def verify(string, left_regex, right_regex, full_regex):
 with open("inputs/day19.txt") as f:
     raw_input = f.read()
 
-rules, strings = [x.splitlines() for x in raw_input.split("\n\n")]
+rules, strings = list(map(str.splitlines, raw_input.split("\n\n")))
 rules = parse(rules)
 
 part1 = sum(list(resolve(string, rules) for string in strings))

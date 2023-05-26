@@ -1,4 +1,5 @@
 const fs = require("fs");
+
 function solve_part1(numbers, preamble_length = 25) {
     let sums = combo_sum(numbers.slice(0, preamble_length));
     for (let i = preamble_length; i < numbers.length; i++) {
@@ -16,10 +17,7 @@ function solve_part1(numbers, preamble_length = 25) {
         sums.shift();
         sums.push(new Set(numbers.slice(i - preamble_length + 1, i).map((x) => x + num)));
     }
-
 }
-
-
 
 function solve_part2(numbers, target) {
 
@@ -61,12 +59,9 @@ function combo_sum(numbers) {
                 result[i].add(summer(i, j));
             }
         }
-
     }
     return result;
-    //return numbers.map((x, i) => new Set(numbers.slice(i + 1).map((y) => x + y)));
 }
-
 
 const raw_input = fs.readFileSync('inputs/day9.txt', 'utf-8').toString().replace(/\n+$/, "").split("\n");
 const numbers = raw_input.map(Number);

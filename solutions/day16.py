@@ -11,8 +11,8 @@ def parse(lines):
         ]
         ranges_map[field] = these_ranges
 
-    mine = [int(x) for x in mine.splitlines()[1].split(",")]
-    others = [[int(x) for x in line.split(",")] for line in others.splitlines()[1:]]
+    mine = list(map(int, mine.splitlines()[1].split(",")))
+    others = [list(map(int, line.split(","))) for line in others.splitlines()[1:]]
 
     return ranges_map, mine, others
 
