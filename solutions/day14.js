@@ -40,8 +40,7 @@ function solve_part1(lines) {
         // New mask
         if (line.length == 1) {
             mask = line[0];
-            mask = mask.split("").reverse()
-            mask = mask.map((x) => x === "X" ? NaN : Number(x));
+            mask = mask.split("").reverse().map((x) => x === "X" ? NaN : Number(x));
             complement = (~mask >>> 0) >>> 0;
         } else {
             let value = line[1];
