@@ -15,7 +15,6 @@ combined <- mapply(expand.grid,
     }) |>
     do.call(what = rbind)
 
-ingreds <- unique(input$ingred)
 observed_groups <- tapply(combined$group, combined$allergen, unique)
 combinations <- interaction(combined$ingredient, combined$allergen, drop = TRUE)
 
@@ -51,5 +50,5 @@ while (anyDuplicated(reduced$ingredient)) {
 }
 part2 <-
     reduced[order(reduced$allergen), "ingredient"] |>
-    paste(collapse = ", ")
-print(part2)
+    paste(collapse = ",")
+cat(part2, "\n")
