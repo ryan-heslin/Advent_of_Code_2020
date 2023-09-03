@@ -1,4 +1,5 @@
-numbers = (17, 1, 3, 16, 19, 0)
+raw_input = "17, 1, 3, 16, 19, 0"
+numbers = tuple(map(int, raw_input.split(",")))
 seen = dict(zip(numbers, range(1, 8)))
 
 
